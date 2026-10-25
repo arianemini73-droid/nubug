@@ -49,7 +49,7 @@ db.connect((err) => {
 });
 
 
-app.get("/", (req, res) => {
+app.get("/punon", (req, res) => {
     res.json({
         message: "Backend-i po punon!"
     });
