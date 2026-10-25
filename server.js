@@ -1,8 +1,10 @@
 
-import express, { json } from "express";
-import cors from "cors";
-import { createConnection } from "mysql2";
-import session from "express-session";
+
+const express = require("express");
+const cors = require("cors");
+const mysql = require("mysql2");
+const session = require("express-session");
+
 
 const app = express();
 
@@ -13,7 +15,7 @@ app.use(
     })
 );
 
-app.use(json());
+app.use(express.json());
 
 app.use(
     session({
@@ -30,19 +32,20 @@ app.use(
     })
 );
 
-const db = createConnection({
-    host: "localhost",
-    user: "u401308408_nubugroot",
-    password: "NuBuG1234",
-    database: "u401308408_nubug",
+const db = mysql.createConnection({
+    host: process.env.DB_HOST || "localhost",
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
 });
 
 db.connect((err) => {
     if (err) {
-        console.log("Gabim me MySQL:", err);
-    } else {
-        console.log("MySQL u lidh me sukses!");
+        console.error("Gabim në lidhjen me databazën:", err.message);
+        return;
     }
+
+    console.log("Lidhja me MySQL u realizua me sukses!");
 });
 
 
