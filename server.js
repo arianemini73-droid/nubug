@@ -32,9 +32,9 @@ app.use(
 
 const db = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "",
-    database: "nubugh",
+    user: "u401308408_nubugroot",
+    password: "NuBug1234",
+    database: "u401308408_nubug",
 });
 
 db.connect((err) => {
