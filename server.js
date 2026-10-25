@@ -1,8 +1,8 @@
 
-const express = require("express");
-const cors = require("cors");
-const mysql = require("mysql2");
-const session = require("express-session");
+import express, { json } from "express";
+import cors from "cors";
+import { createConnection } from "mysql2";
+import session from "express-session";
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(
     })
 );
 
-app.use(express.json());
+app.use(json());
 
 app.use(
     session({
@@ -30,7 +30,7 @@ app.use(
     })
 );
 
-const db = mysql.createConnection({
+const db = createConnection({
     host: "localhost",
     user: "u401308408_nubugroot",
     password: "NuBug1234",
