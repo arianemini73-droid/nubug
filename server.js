@@ -33,7 +33,7 @@ app.use(
 const db = createConnection({
     host: "localhost",
     user: "u401308408_nubugroot",
-    password: "NuBug1234",
+    password: "NuBuG1234",
     database: "u401308408_nubug",
 });
 
