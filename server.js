@@ -33,19 +33,18 @@ app.use(
 );
 
 const db = mysql.createConnection({
-    host: process.env.DB_HOST || "localhost",
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
+    host: "localhost",
+    user: "u401308408_nubugroot",
+    password: "NuBuG1234",
+    database: "u401308408_nubug",
 });
 
 db.connect((err) => {
     if (err) {
-        console.error("Gabim në lidhjen me databazën:", err.message);
-        return;
+        console.log("Gabim me MySQL:", err);
+    } else {
+        console.log("MySQL u lidh me sukses!");
     }
-
-    console.log("Lidhja me MySQL u realizua me sukses!");
 });
 
 
